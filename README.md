@@ -3,10 +3,12 @@ Create - TMDB Hackathon Boilerplate
 
 A React boilerplate for the TMDB hackathon held at Create, May, 2017
 
-[TMDB API Overview](https://www.themoviedb.org/documentation/api)
-[TMDB API Docs](https://developers.themoviedb.org/3/getting-started)
-[TMDB - Build an image URL](https://developers.themoviedb.org/3/configuration/get-api-configuration)
-[TMDB - Discover Examples](https://www.themoviedb.org/documentation/api/discover)
+### Reference Links
+
+- [TMDB API Overview](https://www.themoviedb.org/documentation/api)
+- [TMDB API Docs](https://developers.themoviedb.org/3/getting-started)
+- [TMDB - Build an image URL](https://developers.themoviedb.org/3/configuration/get-api-configuration)
+- [TMDB - Discover Examples](https://www.themoviedb.org/documentation/api/discover)
 
 Getting Started
 ----------------
