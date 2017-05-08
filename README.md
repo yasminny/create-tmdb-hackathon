@@ -29,13 +29,13 @@ Getting Started
 1. Sign up - [TMDB](https://www.themoviedb.org/account/signup)
 1. Verify your email
 1. Create an [API Token](https://www.themoviedb.org/settings/api)
-  - Click Create
-  - Choose Developer
-  - Accept the terms
-  - Fill in the form
-    - Type: Website
-    - App Name and URL: your-name-tmdb-hackathon 
-    - Click Submit to see which fields are required (most are, just fill them in)
+    - Click Create
+    - Choose Developer
+    - Accept the terms
+    - Fill in the form
+      - Type: Website
+      - App Name and URL: your-name-tmdb-hackathon 
+      - Click Submit to see which fields are required (most are, just fill them in)
 1. Set your TMDB token under `config/config.js` > `TMDB_API_TOKEN`
 
 Development
