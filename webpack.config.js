@@ -7,7 +7,6 @@ const path    = require('path');
 // Load Webpack Plugins
 const HtmlWebpackPlugin  = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
-const StyleLintPlugin    = require('stylelint-webpack-plugin');
 
 // Settings
 const appEnv            = process.env.NODE_ENV || 'development';
@@ -16,6 +15,7 @@ const distPath          = path.join(__dirname, 'dist');
 const assetsPathPattern = '[path][name].[hash].[ext]';
 const distPathPattern   = '[name].[hash].js';
 const exclude           = /node_modules/;
+const appConfig         = require('./config/config');
 
 const config = {
   // The base directory for resolving `entry` (must be absolute path)
@@ -49,11 +49,6 @@ const config = {
       filename: 'index.html'
     }),
 
-    // Lint style files
-    new StyleLintPlugin({
-      syntax: 'scss'
-    }),
-
     // Do not output to dist if there are errors
     new webpack.NoEmitOnErrorsPlugin(),
 
@@ -62,23 +57,15 @@ const config = {
       // Make sure env variables are available on client and server code
       // Used by React to cleanup debugging properties when using NODE_ENV === `production`
       'process.env': {
-        NODE_ENV: JSON.stringify(appEnv)
+        NODE_ENV: JSON.stringify(appEnv),
+        TMDB_API_TOKEN: JSON.stringify(appConfig.TMDB_API_TOKEN),
+        TMDB_API_URL: JSON.stringify(appConfig.TMDB_API_URL)
       }
     })
   ],
 
   module: {
     rules: [
-      // Lint JS files (pre-loader)
-      {
-        enforce: 'pre',
-        test: /\.js$/,
-        use: [
-          'eslint-loader'
-        ],
-        exclude
-      },
-
       // Allow importing JS files, transpile using Babel
       {
         test: /\.js$/,
@@ -86,7 +73,7 @@ const config = {
           {
             loader: 'babel-loader',
             options: { cacheDirectory: true }
-          },
+          }
         ],
         exclude
       },

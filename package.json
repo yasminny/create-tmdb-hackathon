@@ -1,15 +1,11 @@
 {
-  "name": "react-es6-starter",
+  "name": "create-tmdb-hackathon",
   "version": "0.0.0",
-  "description": "A boilerplate for React projects with Webpack and ES6",
+  "description": "A React boilerplate for the TMDB hackathon held at Create, May, 2017",
   "scripts": {
     "start": "webpack-dev-server --hot --progress",
     "prebuild": "npm prune&npm install",
-    "build": "cross-env NODE_ENV=production webpack -p --progress",
-    "lintjs": "eslint -c .eslintrc --ignore-path .gitignore --max-warnings 0 .",
-    "lintcss": "stylelint --syntax scss 'app/**/*.scss'",
-    "lint": "npm run lintjs && npm run lintcss",
-    "eslint-find-unused-rules": "eslint-find-rules -u .eslintrc -n"
+    "build": "cross-env NODE_ENV=production webpack -p --progress"
   },
   "license": "MIT",
   "dependencies": {
@@ -17,12 +13,13 @@
     "normalize.css": "6.0.0",
     "react": "15.5.4",
     "react-dom": "15.5.4",
-    "react-router-dom": "4.1.0"
+    "react-redux": "5.0.4",
+    "react-router-dom": "4.1.0",
+    "redux": "3.6.0"
   },
   "devDependencies": {
     "autoprefixer": "6.7.7",
     "babel-core": "6.24.1",
-    "babel-eslint": "7.2.1",
     "babel-loader": "7.0.0-beta.1",
     "babel-plugin-transform-runtime": "6.23.0",
     "babel-preset-es2015": "6.24.1",
@@ -31,12 +28,6 @@
     "clean-webpack-plugin": "0.1.16",
     "cross-env": "4.0.0",
     "css-loader": "0.28.0",
-    "eslint": "3.19.0",
-    "eslint-config-react": "1.1.7",
-    "eslint-find-rules": "1.14.3",
-    "eslint-loader": "1.7.1",
-    "eslint-plugin-babel": "4.1.1",
-    "eslint-plugin-react": "6.10.3",
     "expose-loader": "0.7.3",
     "file-loader": "0.11.1",
     "html-webpack-plugin": "2.28.0",
@@ -45,8 +36,6 @@
     "react-hot-loader": "3.0.0-beta.6",
     "sass-loader": "6.0.3",
     "style-loader": "0.16.1",
-    "stylelint": "7.10.1",
-    "stylelint-webpack-plugin": "0.7.0",
     "url-loader": "0.5.8",
     "webpack": "2.3.3",
     "webpack-dev-server": "2.4.2"
