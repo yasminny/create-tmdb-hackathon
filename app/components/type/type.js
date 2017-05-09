@@ -75,7 +75,7 @@ export default function Type(){
           typeDatabase.type.map((typeData, i) => {
               return <li className="type-card" key={ i }>
                 <TypeCard
-                  type={type}/>
+                  type={typeData}/>
               </li>
             }
           )}

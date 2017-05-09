@@ -1,7 +1,9 @@
 import React from 'react';
 import TMDB from '../../core/tmdb';
-import { connect } from 'react-redux';
+import {connect} from 'react-redux';
 import MovieCard from '../movie-card/movie-card';
+import Slider from 'react-slick';
+
 
 class Explore extends React.Component {
   constructor() {
@@ -12,11 +14,27 @@ class Explore extends React.Component {
 
     this.loadMovies = this.loadMovies.bind(this);
     this.getGenreId = this.getGenreId.bind(this);
+    this.getSelectedMovies = this.getSelectedMovies.bind(this);
   }
 
-  getGenreId(){
+  componentDidMount() {
+    this.loadMovies();
+  }
+
+  // shouldComponentUpdate(nextProps){
+  //   if(this.props !== nextProps){
+  //     this.getSelectedMovies()
+  //   }
+  //
+  // }
+
+  componentDidUpdate(){
+    this.getSelectedMovies()
+  }
+
+  getGenreId() {
     const genre = this.props.match.params.genre.toString();
-    let genreListObj= {
+    let genreListObj = {
       "genres": [
         {
           "id": 28,
@@ -97,23 +115,23 @@ class Explore extends React.Component {
       ]
     };
 
-    for (genreInList of genreListObj.genres){
-      if (genre === genreInList.name){
-        return genreListObj.genres.id;
+    for (const genreInList of genreListObj.genres) {
+      if (genre === genreInList.name) {
+        return genreInList.id;
       }
     }
 
   }
 
-  loadMovies(){
+  loadMovies() {
     const genreId = this.getGenreId();
-      this.setState({
+    this.setState({
       loading: true
     });
 
-    TMDB.get(`genre/${genreId}/movies?sort_by=popularity.desc`)
+    TMDB.get(`/genre/${genreId}/movies?sort_by=popularity.desc`)
       .then((data) => {
-console.log(data);
+        console.log(data);
         this.setState({
           loading: false
         });
@@ -123,35 +141,108 @@ console.log(data);
 
   }
 
+  getSelectedMovies(){
+    console.log('get selected movies', this.props.selectedMovies.length);
+    if(this.props.selectedMovies.length === 0){
+      console.log('print');
+      return <ul>
+        <li className="selected-movie">?</li>
+        <li className="selected-movie">?</li>
+        <li className="selected-movie">?</li>
+      </ul>
+    }
+    else{
+      if(this.props.selectedMovies.length === 3){
+        return this.props.selectedMovies.map((selectedMovie, i) => {
+            return <div key={ i } className="selected-movie">
+              <image>image</image>
+            </div>
+          }
+        )
+      }
+      if(this.props.selectedMovies.length === 2){
+        const partialList = this.props.selectedMovies.map((selectedMovie, i) => {
+            return <div key={ i } className="selected-movie">
+              <image>image</image>
+            </div>
+          }
+        );
+        return <div>
+          {partialList}
+          <div className="selected-movie">?</div>
+        </div>
+      }
+      if(this.props.selectedMovies.length === 1){
+        const partialList = this.props.selectedMovies.map((selectedMovie, i) => {
+            return <div key={ i } className="selected-movie">
+              <image>image</image>
+            </div>
+          }
+        );
+        return <div>
+          {partialList}
+          <div className="selected-movie">?</div>
+          <div className="selected-movie">?</div>
+        </div>
+      }
+    }
+  }
+
 
   render() {
-    return(
-        <div className="explore-comp">
-          <div className="select-movie-list">
-            <ul>
-              <li className="option-one">?</li>
-              <li className="option-two">?</li>
-              <li className="option-three">?</li>
-            </ul>
-          </div>
-<div className="carusel">
-  {
-    this.props.movies.map((item, i) => {
-        return <li  key={ i }>
-          <MovieCard
-            movie={item}/>
-        </li>
-      }
-    )}
-</div>
+    const settings = {
+      dots: true,
+      focusOnSelect: true,
+      // infinite: true,
+      centerMode: true,
+      adaptiveHeight: true,
+      // slidesToShow: 3,
+      arrows: true,
+      speed: 500
+      // nextArrow: <SampleNextArrow />,
+      // prevArrow: <SamplePrevArrow />
+    };
+    console.log(this.props.movies);
+
+    return (
+      <div className="explore-comp">
+        <h1>Movie for your mood</h1>
+        <Slider {...settings}>
+          {/*<div className="carusel">*/}
+            {/*<div className="slick-initialized slick-slider center">*/}
+            {/*<button type="button" data-role="none" className="slick-arrow slick-prev" style="display: block;"> Previous*/}
+            {/*</button>*/}
+            {/*<div className="slick-list" style="padding: 0px 60px;">*/}
+            {/*<div className="slick-track"*/}
+            {/*style="opacity: 1; transform: translate3d(-278.192px, 0px, 0px); width: 2364.63px;">*/}
+            {
+              this.props.movies.map((item, i) => {
+                console.log(item);
+                  return <div key={ i }>
+                    <MovieCard
+                      movie={item}/>
+                  </div>
+                }
+              )}
+            {/*</div>*/}
+            {/*</div>*/}
+            {/*<button type="button" data-role="none" className="slick-arrow slick-next" style="display: block;"> Next*/}
+            {/*</button>*/}
+            {/*</div>*/}
+          {/*</div>*/}
+        </Slider>
+        <div className="select-movie-list">
+          { this.getSelectedMovies()}
         </div>
-      );
+      </div>
+    );
   }
 }
 
-function mapStateToProps({ state }) {
+function mapStateToProps(state) {
   return {
-    movies: state.movies
+    movies: state.movies,
+    selectedMovies: state.selectedMovies
   };
 }
 

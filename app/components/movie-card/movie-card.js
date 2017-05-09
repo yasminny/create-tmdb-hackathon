@@ -11,27 +11,31 @@ class MovieCard extends React.Component {
     let selectedMovies = [...this.props.selectedMovies];
     if(selectedMovies.length === 0){
       selectedMovies.push(this.props.movie);
+      return this.props.setMovies(selectedMovies);
     }
     else{
-      const movieIndex = selectedMovies.findIndex((movie)=> movie === this.props.movie);
-      if(movieIndex>= 0){
-        selectedMovies.splice(movieIndex, 1);
+      for(let index in selectedMovies){
+        if (selectedMovies[index].id === this.props.movie.id){
+          selectedMovies.splice(index, 1);
+          return this.props.setMovies(selectedMovies);
+        }
       }
-      else {
         selectedMovies.push(this.props.movie);
-      }
+        return this.props.setMovies(selectedMovies);
     }
   }
 
   render(){
-    return (<div className="movie-card-comp">
-      <h1>Movie for your mood</h1>
+    return (
+      <div data-index="0" className="slick-slide slick-active slick-center" >
+      <div className="movie-card-comp">
       <image className="movie-poster"/>
-        <h2>movie title</h2>
-      <p>rate</p>
-        <h2>duration</h2>
-        <h2>overview</h2>
+        <h2>Title: {this.props.movie.title}</h2>
+      <p>rate: {this.props.movie.vote_average}</p>
+        <h2>Overview</h2>
+        <p>{this.props.movie.overview}</p>
         <button type="button" className="add-movie" onClick={()=> this.addMovieToSelected()}>Add me</button>
+      </div>
       </div>
     );
   }
@@ -40,9 +44,9 @@ class MovieCard extends React.Component {
 
 
 
-function mapStateToProps({ state }) {
+function mapStateToProps({ selectedMovies }) {
   return {
-    selectedMovies: state.selectedMovies
+    selectedMovies: selectedMovies
   };
 }
 
