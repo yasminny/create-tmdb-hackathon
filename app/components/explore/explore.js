@@ -34,6 +34,7 @@ class Explore extends React.Component {
 
   getGenreId() {
     const genre = this.props.match.params.genre.toString();
+
     let genreListObj = {
       "genres": [
         {
@@ -125,6 +126,7 @@ class Explore extends React.Component {
 
   loadMovies() {
     const genreId = this.getGenreId();
+
     this.setState({
       loading: true
     });
@@ -132,6 +134,7 @@ class Explore extends React.Component {
     TMDB.get(`/genre/${genreId}/movies?sort_by=popularity.desc`)
       .then((data) => {
         console.log(data);
+
         this.setState({
           loading: false
         });
@@ -143,6 +146,7 @@ class Explore extends React.Component {
 
   getSelectedMovies(){
     console.log('get selected movies', this.props.selectedMovies.length);
+
     if(this.props.selectedMovies.length === 0){
       console.log('print');
       return <ul>
@@ -207,7 +211,8 @@ class Explore extends React.Component {
     return (
       <div className="explore-comp">
         <h1>Movie for your mood</h1>
-        <Slider {...settings}>
+
+        {!!this.props.movies.length && <Slider {...settings}>
           {/*<div className="carusel">*/}
             {/*<div className="slick-initialized slick-slider center">*/}
             {/*<button type="button" data-role="none" className="slick-arrow slick-prev" style="display: block;"> Previous*/}
@@ -230,7 +235,8 @@ class Explore extends React.Component {
             {/*</button>*/}
             {/*</div>*/}
           {/*</div>*/}
-        </Slider>
+        </Slider>}
+
         <div className="select-movie-list">
           { this.getSelectedMovies()}
         </div>
