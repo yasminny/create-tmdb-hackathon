@@ -3,6 +3,7 @@ import TMDB from '../../core/tmdb';
 import {connect} from 'react-redux';
 import MovieCard from '../movie-card/movie-card';
 import Slider from 'react-slick';
+import {NavLink} from 'react-router-dom';
 
 
 class Explore extends React.Component {
@@ -194,6 +195,9 @@ class Explore extends React.Component {
 
 
   render() {
+    const nextBtnClass = this.props.selectedMovies === 3? "next" : "next disabled";
+    const link = `/friends`;
+
     const settings = {
       dots: true,
       focusOnSelect: true,
@@ -213,13 +217,6 @@ class Explore extends React.Component {
         <h1>Movie for your mood</h1>
 
         {!!this.props.movies.length && <Slider {...settings}>
-          {/*<div className="carusel">*/}
-            {/*<div className="slick-initialized slick-slider center">*/}
-            {/*<button type="button" data-role="none" className="slick-arrow slick-prev" style="display: block;"> Previous*/}
-            {/*</button>*/}
-            {/*<div className="slick-list" style="padding: 0px 60px;">*/}
-            {/*<div className="slick-track"*/}
-            {/*style="opacity: 1; transform: translate3d(-278.192px, 0px, 0px); width: 2364.63px;">*/}
             {
               this.props.movies.map((item, i) => {
                 console.log(item);
@@ -230,16 +227,11 @@ class Explore extends React.Component {
                   </div>
                 }
               )}
-            {/*</div>*/}
-            {/*</div>*/}
-            {/*<button type="button" data-role="none" className="slick-arrow slick-next" style="display: block;"> Next*/}
-            {/*</button>*/}
-            {/*</div>*/}
-          {/*</div>*/}
         </Slider>}
 
         <div className="select-movie-list">
           { this.getSelectedMovies()}
+          <button className={nextBtnClass}><NavLink to={link} activeClassName="go-to-friends">choose your friends</NavLink></button>
         </div>
       </div>
     );
