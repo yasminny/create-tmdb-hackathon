@@ -23,7 +23,7 @@ class Vote extends React.Component {
     return (
       <div className="vote-comp">
         <h1>Vote</h1>
-        <Slider {...settings}>
+        {!!this.props.movies.length && <Slider {...settings}>
           {
             this.props.selectedMovies.map((item, i) => {
                 console.log(item);
@@ -34,12 +34,9 @@ class Vote extends React.Component {
                 </div>
               }
             )}
-        </Slider>
-        <div className="vote-for-each">
-          <div>1</div>
-          <div>2</div>
-          <div>3</div>
-        </div>
+        </Slider>}
+        <div>image</div>
+        <button type="button">Stop the vote!</button>
       </div>
     );
   }

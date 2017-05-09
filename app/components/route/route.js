@@ -1,8 +1,9 @@
 import Explore from '../explore/explore';
 import Signin from '../signin/signin';
 import Type from '../type/type';
-import Profile from '../profile/profile';
+import Vote from '../vote/vote';
 import Topbar from '../topbar/topbar';
+import Friends from '../friends/friends';
 import {
   Redirect,
   Route,
@@ -33,7 +34,8 @@ export default class Root extends React.Component {
             }}/>
             <Route path="/explore/:genre" component={ Explore }/>
             <Route exact path="/type" component={ Type }/>
-            <Route exact path="/profile" component={ Profile }/>
+            <Route exact path="/vote" component={ Vote }/>
+            <Route exact path="/friends" component={ Friends }/>
           </Switch>
         </main>
       </div>);
