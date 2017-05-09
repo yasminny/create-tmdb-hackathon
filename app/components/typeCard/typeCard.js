@@ -8,7 +8,7 @@ export default function TypeCard(props) {
   const link = `/explore/${props.type.genre}`;
   console.log(props.type);
   return (
-    <div>
+    <div className="single-card">
       <NavLink to={link} activeClassName="selected-genre">
         <span className="icon" style={{'backgroundImage': `url( ${props.type.image})`}}/>
         {props.type.text}</NavLink>

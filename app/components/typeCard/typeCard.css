@@ -1,8 +1,24 @@
 .icon {
-  background-color: red;
   width: 100px;
   height: 100px;
+  display: block;
+  margin: 0;
+  padding: 0;
 }
 
+a {
+  font-size: 14px;
+  color: #FFFFFF;
+  line-height: 4;
+  display: inline-block;
+  text-align: center;
+  font-family: 'OpenSans-Light', sans-serif;
+  font-weight: 300;
+}
 
+.single-card {
+  height: 200px;
+  width: 200px;
+  display: block;
 
+}
