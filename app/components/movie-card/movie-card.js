@@ -5,6 +5,7 @@ class MovieCard extends React.Component {
   constructor() {
     super();
     this.addMovieToSelected = this.addMovieToSelected.bind(this);
+    this.buttonType = this.buttonType.bind(this);
   }
 
   addMovieToSelected(){
@@ -27,7 +28,7 @@ class MovieCard extends React.Component {
 
   buttonType(){
     if (this.props.mode === 'explore'){
-      return <button type="button" className="add-movie" onClick={()=> this.addMovieToSelected()}>Add me</button>
+      return <button type="button" className="add-movie" onClick={()=> this.addMovieToSelected()}>Add/Remove me</button>
     }
     else{
       return <button type="button" className="vote-movie" >Vote</button>
@@ -43,7 +44,7 @@ class MovieCard extends React.Component {
       <p>rate: {this.props.movie.vote_average}</p>
         <h2>Overview</h2>
         <p>{this.props.movie.overview}</p>
-
+        {this.buttonType()}
       </div>
       </div>
     );

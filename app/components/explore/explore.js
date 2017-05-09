@@ -197,9 +197,9 @@ class Explore extends React.Component {
     const settings = {
       dots: true,
       focusOnSelect: true,
-      // infinite: true,
+      infinite: true,
       centerMode: true,
-      adaptiveHeight: true,
+      // adaptiveHeight: true,
       // slidesToShow: 3,
       arrows: true,
       speed: 500
