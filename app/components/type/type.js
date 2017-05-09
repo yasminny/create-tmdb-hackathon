@@ -1,75 +1,81 @@
 import React from 'react';
 import TypeCard from '../typeCard/typeCard';
+import './type.css'
 
 
 export default function Type(){
   const typeDatabase = {type: [
     {
-      genre: 35,
+      genre: 'Comedy',
       text: 'Laugh my pants off',
-      image: ''
+      image: '../../assets/icons/Comedy.png'
     },
     {
-      genre: 18,
+      genre: 'Drama',
       text: 'Need some drama',
       image: ''
     },
     {
-      genre: 10751,
+      genre: 'Family',
       text: 'Family time',
       image: ''
     },
     {
-      genre: 80,
+      genre: 'Crime',
       text: 'Going criminal',
       image: ''
     },
     {
-      genre: 16,
+      genre: 'Animation',
       text: 'Going cartoon',
       image: ''
     },
     {
-      genre: 14,
+      genre: 'Fantasy',
       text: 'Diving to fantasy',
       image: ''
     },
     {
-      genre: 878,
+      genre: 'Sience fiction',
       text: 'Some science fiction',
       image: ''
     },
     {
-      genre: 28,
+      genre: 'Action',
       text: 'Want some action',
+      image: '../assets/icons/Action.png'
+    },
+    {
+      genre: 'Adventure',
+      text: 'For adventure',
       image: ''
     },
     {
-      genre: 10749,
+      genre: 'Romance',
       text: 'To fall in love',
       image: ''
     },
     {
-      genre: 27,
+      genre: 'Horror',
       text: 'Screaming my hat off',
       image: ''
     },
     {
-      genre: 53,
+      genre: 'Thriller',
       text: 'Some tension',
       image: ''
     }
   ]};
-  console.log('type');
+  // console.log('type');
   return (
     <div className="type-comp">
-      <h1>What are you in the mood for?</h1>
+      <h1>You in a mood for...</h1>
       <ul className="choose-type">
         {
-          typeDatabase.type.map((type, i) => {
-              return <li  key={ i }>
+          typeDatabase.type.map((typeData, i) => {
+              return <li className="type-card" key={ i }>
                 <TypeCard
-                  type={type}/>
+                  type={typeData}/>
               </li>
             }
           )}

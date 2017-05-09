@@ -96,9 +96,8 @@ class Explore extends React.Component {
       ]
     };
 
-    genreListObj = JSON.parse(genreListObj);
-    for (genre of genreListObj.genres){
-      if (genre === genre.name){
+    for (genreInList of genreListObj.genres){
+      if (genre === genreInList.name){
         return genreListObj.genres.id;
       }
     }
