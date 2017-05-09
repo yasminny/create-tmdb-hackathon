@@ -1,7 +1,7 @@
 import {NavLink} from 'react-router-dom';
 import React from 'react';
 
-export default function TypeCard() {
+export default function TypeCard(props) {
   const link = `/explore/${props.type.genre}`;
   return (
     <div>

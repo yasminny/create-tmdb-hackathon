@@ -11,16 +11,15 @@ export default function Type(){
       image: ''
     }
   ]};
-  console.log('type');
   return (
     <div className="type-comp">
       <h1>What are you in the mood for?</h1>
       <ul className="choose-type">
         {
-          typeDatabase.type.map((type, i) => {
+          typeDatabase.type.map((typeData, i) => {
               return <li  key={ i }>
                 <TypeCard
-                  type={type}/>
+                  type={typeData}/>
               </li>
             }
           )}
