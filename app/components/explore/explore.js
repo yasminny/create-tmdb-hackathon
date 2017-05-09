@@ -15,8 +15,8 @@ class Explore extends React.Component {
 
   getGenreId(){
     const genre = this.props.match.params.genre.toString();
-    const genreListObj= {
-      genres: [
+    let genreListObj= {
+      "genres": [
         {
           "id": 28,
           "name": "Action"
@@ -96,6 +96,7 @@ class Explore extends React.Component {
       ]
     };
 
+    genreListObj = JSON.parse(genreListObj);
     for (genre of genreListObj.genres){
       if (genre === genre.name){
         return genreListObj.genres.id;
