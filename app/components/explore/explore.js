@@ -3,6 +3,7 @@ import TMDB from '../../core/tmdb';
 import {connect} from 'react-redux';
 import MovieCard from '../movie-card/movie-card';
 import Slider from 'react-slick';
+import './explore.css';
 
 
 class Explore extends React.Component {
@@ -195,7 +196,7 @@ class Explore extends React.Component {
 
   render() {
     const settings = {
-      dots: true,
+      // dots: true,
       focusOnSelect: true,
       infinite: true,
       centerMode: true,
@@ -210,7 +211,7 @@ class Explore extends React.Component {
 
     return (
       <div className="explore-comp">
-        <h1>Movie for your mood</h1>
+        <h2>Movie for your mood</h2>
 
         {!!this.props.movies.length && <Slider {...settings}>
           {/*<div className="carusel">*/}
@@ -240,6 +241,12 @@ class Explore extends React.Component {
 
         <div className="select-movie-list">
           { this.getSelectedMovies()}
+        </div>
+        <div className="footer">
+          <div className="choice-square choice-one">?</div>
+          <div className="choice-square choice-two">?</div>
+          <div className="choice-square choice-three">?</div>
+          <div className="stop-vote-btn"><img src="../assets/pics/stop-btn.png" alt=""/></div>
         </div>
       </div>
     );
