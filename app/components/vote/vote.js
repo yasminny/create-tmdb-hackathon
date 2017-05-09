@@ -19,7 +19,7 @@ class Vote extends React.Component {
       arrows: true,
       speed: 500
     };
-    console.log(this.props.movies);
+    console.log(this.props.selectedMovies);
 
     return (
       <div className="vote-comp">
