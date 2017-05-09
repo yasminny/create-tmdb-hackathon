@@ -14,7 +14,7 @@
 .logo-title {
   position: fixed;
   top: 30px;
-  left: 193px;
+  left: 100px;
   color: #ffffff;
   display: block;
 }
@@ -42,6 +42,6 @@ h2 {
 .top-bar img {
   position: fixed;
   top: 12px;
-  right: 265px;
+  right: 100px;
 
 }

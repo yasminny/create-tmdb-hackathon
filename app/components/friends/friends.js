@@ -1,5 +1,6 @@
 import {connect} from 'react-redux';
 import {NavLink} from 'react-router-dom';
+import React from 'react';
 
 class Friends extends React.Component {
   constructor() {
@@ -8,10 +9,9 @@ class Friends extends React.Component {
   }
 
   render() {
-    const link = `/vote`;
     return <div>
       <image>friends</image>
-      <button className="toVote"><NavLink to={link} activeClassName="go-to-vote">Start voting</NavLink></button>
+      <button className="toVote"><NavLink to={`/vote`} activeClassName="go-to-vote">Start voting</NavLink></button>
     </div>
   }
 }

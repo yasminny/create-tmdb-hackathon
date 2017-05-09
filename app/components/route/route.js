@@ -10,6 +10,7 @@ import {
   Switch
 } from 'react-router-dom';
 import React from 'react';
+import './route.css';
 
 export default class Root extends React.Component {
   constructor() {
