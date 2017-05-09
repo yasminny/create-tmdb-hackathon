@@ -10,15 +10,14 @@ import { render } from 'react-dom';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { Provider } from 'react-redux';
 
-import Root from './components/root/root';
+// import Root from './components/root/root';
+import Routs from './components/route/route';
 import store from './store';
 
 render(
   <Provider store={ store }>
     <BrowserRouter>
-      <Switch>
-        <Route exact path="/" component={ Root } />
-      </Switch>
+      <Routs/>
     </BrowserRouter>
   </Provider>,
   document.querySelector('#app')
