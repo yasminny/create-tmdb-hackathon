@@ -29,7 +29,7 @@ export default class Root extends React.Component {
             }}/>
             <Route path="/signin" component={ Signin }/>
             <Route exact path="/explore" component={ () => {
-              return <Redirect to="/explore/comedy"/>
+              return <Redirect to="/explore/Comedy"/>
             }}/>
             <Route path="/explore/:genre" component={ Explore }/>
             <Route exact path="/type" component={ Type }/>
