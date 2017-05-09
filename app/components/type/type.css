@@ -1,10 +1,50 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,700');
+
+
 .type-comp {
-  background-color: #f2f2f2;
+  opacity: 0.86;
+  background-image: linear-gradient(-134deg, #2E2D2D 0%, #100F0F 75%, #2E2D2D 100%);
+  /*padding-top: 94px;*/
+  border: red 1px solid;
+  position: absolute;
+  top: 94px;
+  left: 0;
+  /*height: 90%;*/
+
 }
 
 .choose-type {
   list-style-type: none;
-  margin: 0;
-  padding: 0;
+  margin: auto 0;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+
 }
 
+h1 {
+  font-size: 48px;
+  color: #FFFFFF;
+  display: inline-block;
+}
+
+.title {
+  text-align: center;
+  display: block;
+}
+
+.title h1:nth-child(1) {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 300;
+}
+
+.title h1:nth-child(2) {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 700;
+}
+
+.title h1:nth-child(3) {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 300;
+}

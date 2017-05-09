@@ -13,32 +13,32 @@ export default function Type(){
     {
       genre: 'Drama',
       text: 'Need some drama',
-      image: ''
+      image: '../../assets/icons/Drama.png'
     },
     {
       genre: 'Family',
       text: 'Family time',
-      image: ''
+      image: '../../assets/icons/Family.png'
     },
     {
       genre: 'Crime',
       text: 'Going criminal',
-      image: ''
+      image: '../../assets/icons/Crime.png'
     },
     {
       genre: 'Animation',
       text: 'Going cartoon',
-      image: ''
+      image: '../../assets/icons/Animation.png'
     },
     {
       genre: 'Fantasy',
       text: 'Diving to fantasy',
-      image: ''
+      image: '../../assets/icons/Fantasy.png'
     },
     {
-      genre: 'Sience fiction',
+      genre: 'Science-fiction',
       text: 'Some science fiction',
-      image: ''
+      image: '../../assets/icons/Sience-fiction.png'
     },
     {
       genre: 'Action',
@@ -48,28 +48,27 @@ export default function Type(){
     {
       genre: 'Adventure',
       text: 'For adventure',
-      image: ''
+      image: '../../assets/icons/Adventure.png'
     },
     {
       genre: 'Romance',
       text: 'To fall in love',
-      image: ''
+      image: '../../assets/icons/Romance.png'
     },
     {
       genre: 'Horror',
       text: 'Screaming my hat off',
-      image: ''
+      image: '../../assets/icons/Horror.png'
     },
     {
       genre: 'Thriller',
       text: 'Some tension',
-      image: ''
+      image: '../../assets/icons/Thriller.png'
     }
   ]};
-  console.log('type');
   return (
     <div className="type-comp">
-      <h1>You in a mood for...</h1>
+      <span className="title"><h1>You in a&nbsp;</h1><h1>mood&nbsp;</h1><h1>for?</h1></span>
       <ul className="choose-type">
         {
           typeDatabase.type.map((typeData, i) => {
