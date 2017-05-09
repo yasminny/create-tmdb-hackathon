@@ -25,6 +25,15 @@ class MovieCard extends React.Component {
     }
   }
 
+  buttonType(){
+    if (this.props.mode === 'explore'){
+      return <button type="button" className="add-movie" onClick={()=> this.addMovieToSelected()}>Add me</button>
+    }
+    else{
+      return <button type="button" className="vote-movie" >Vote</button>
+    }
+  }
+
   render(){
     return (
       <div data-index="0" className="slick-slide slick-active slick-center" >
@@ -34,7 +43,7 @@ class MovieCard extends React.Component {
       <p>rate: {this.props.movie.vote_average}</p>
         <h2>Overview</h2>
         <p>{this.props.movie.overview}</p>
-        <button type="button" className="add-movie" onClick={()=> this.addMovieToSelected()}>Add me</button>
+
       </div>
       </div>
     );

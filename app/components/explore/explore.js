@@ -225,7 +225,8 @@ class Explore extends React.Component {
                 console.log(item);
                   return <div key={ i }>
                     <MovieCard
-                      movie={item}/>
+                      movie={item}
+                      state={'explore'}/>
                   </div>
                 }
               )}
