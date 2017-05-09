@@ -66,7 +66,7 @@ export default function Type(){
       image: ''
     }
   ]};
-  // console.log('type');
+  console.log('type');
   return (
     <div className="type-comp">
       <h1>You in a mood for...</h1>
@@ -75,7 +75,7 @@ export default function Type(){
           typeDatabase.type.map((typeData, i) => {
               return <li className="type-card" key={ i }>
                 <TypeCard
-                  type={typeData}/>
+                  type={type}/>
               </li>
             }
           )}

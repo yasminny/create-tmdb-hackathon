@@ -1,6 +1,7 @@
 import React from 'react';
 import TMDB from '../../core/tmdb';
 import { connect } from 'react-redux';
+import MovieCard from '../movie-card/movie-card';
 
 class Explore extends React.Component {
   constructor() {
@@ -105,8 +106,7 @@ class Explore extends React.Component {
   }
 
   loadMovies(){
-
-    const genreId = getGenreId();
+    const genreId = this.getGenreId();
       this.setState({
       loading: true
     });
@@ -125,13 +125,33 @@ console.log(data);
 
 
   render() {
-
+    return(
+        <div className="explore-comp">
+          <div className="select-movie-list">
+            <ul>
+              <li className="option-one">?</li>
+              <li className="option-two">?</li>
+              <li className="option-three">?</li>
+            </ul>
+          </div>
+<div className="carusel">
+  {
+    this.props.movies.map((item, i) => {
+        return <li  key={ i }>
+          <MovieCard
+            movie={item}/>
+        </li>
+      }
+    )}
+</div>
+        </div>
+      );
   }
 }
 
-function mapStateToProps({ movies }) {
+function mapStateToProps({ state }) {
   return {
-    movies: movies
+    movies: state.movies
   };
 }
 
