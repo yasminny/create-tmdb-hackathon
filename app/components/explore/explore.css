@@ -38,3 +38,17 @@
 .stop-vote-btn {
 
 }
+
+.slick-slider{
+  width: 90%;
+  margin: auto;
+}
+
+.slick-list{
+  width: 100%;
+}
+
+div .slick-slide.slick-slide.slick-slide{
+  width: 345px;
+}
+

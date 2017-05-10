@@ -205,7 +205,7 @@ class Explore extends React.Component {
       infinite: true,
       centerMode: true,
       // adaptiveHeight: true,
-      // slidesToShow: 3,
+      slidesToShow: 2,
       arrows: true,
       speed: 500
       // nextArrow: <SampleNextArrow />,
